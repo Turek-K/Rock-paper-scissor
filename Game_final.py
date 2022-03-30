@@ -1,4 +1,3 @@
-from secrets import choice
 import random
 
 
@@ -56,6 +55,7 @@ while True:
             print("You Win!")
 
     play_again = input("Do You want play again? Write 'Yes' or 'No'")
+    play_again = play_again.capitalize()
     if play_again == "Yes":
         True
     else:
