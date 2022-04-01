@@ -1,0 +1,53 @@
+import random
+
+
+def display(computer_choice, human_choice, computer_score, human_score):
+    print("Computer choice:", computer_choice)
+    print("Human choice:", human_choice)
+    print("Computer score: ", computer_score)
+    print("Human score: ", human_score)
+
+
+def game():
+    human_score = 0
+    computer_score = 0
+
+    while True:
+        choice = ["Rock", "Paper", "Scissors "]
+
+        computer_choice = random.choice(choice)
+        human_choice = input("choice between Rock, Paper, Scissors: ")
+        human_choice = human_choice.capitalize()
+        if human_choice not in choice:
+            print("Wrong choice!")
+            continue
+        print(human_choice)
+
+        if computer_choice == human_choice:
+            display(computer_choice, human_choice, computer_score, human_score)
+            print("Draw!")
+
+            # Human Win
+        elif (human_choice == "Scissors" and computer_choice == "Paper" or
+            human_choice == "Paper" and computer_choice == "Rock" or 
+            human_choice == "Rock" and computer_choice == "Scissors"):
+            human_score += 1
+            display(computer_choice, human_choice, computer_score, human_score)
+            print("You Win!")
+            # Computer Win
+        else:
+            computer_score += 1
+            display(computer_choice, human_choice, computer_score, human_score)
+            print("Computer Win")
+
+        play_again = input("Do You want play again? Write 'Yes' or 'No'")
+        play_again = play_again.capitalize()
+        if play_again == "Yes":
+            pass
+        else:
+            print("Thank you for playing!")
+            break
+
+
+if __name__ == "__main__":
+    game()
